@@ -1,0 +1,194 @@
+-- Hi everyone from Moscow!
+
+bpm 120
+
+d1 $ s "kick"
+
+d1
+  $ every 64 (superimpose $ const $ s "crash" # n (irand 5))
+  $ mod16 64 (const $ rev $ loa 16 "8fx" # n 5)
+  $ so' 0.2 (fa 2) $ stack [
+    (1 <~) $ s "snare/2" # n 5 # shape 0.2 # gain 0.9
+  ]
+
+-- bass-01.tidal
+d2 $ so (|+ speed "0.005") $ loa 32 "8bass" # n 1 # shape 0.9 # room 0.2 
+
+-- synth-01.tidal
+d3 $ de' 0.2 $ trunc 0.1 $ jux rev $ so (fa 1) $ (loa 32 "8synth" # n "8" # shape 0.5)
+
+d4 $ s "808:10" # cut "-1"
+
+-- transition-clutchin.tidal
+do
+  clutchIn 1 64 $ stack [sl 4 $ s "kick" # n 43, struct (sl 2 $ "~ t") $ s "snap" # n 1]
+  clutchIn 2 64 $ silence
+  clutchIn 3 64 $ silence
+  clutchIn 4 64 $ silence
+  clutchIn 5 64 $ silence
+  clutchIn 6 64 $ silence
+  clutchIn 7 64 $ silence
+
+
+ -- drops-02.tidal
+
+-- drums-02.tidal
+d1
+  $ mod32 128 (const $ loa 32 "8atmo" # n 0)
+  $ every 128 (superimpose $ const $ s "crash" # n 2)
+  $ whenmod 7 5 (fa 2) $ stack [
+    struct (sl 4 "t [t? t] t*2? [t? t]") $ s "sub" # n 3 # cut "-1",
+    sl 4 $ s "kick" # n 43,
+    struct (sl 2 $ "~ t") $ s "snap" # n 1,
+    struct (sl 4 $ "t(<11 13 15>, 16, <0 1 0 2>)") $ s "top" # n (choose[0, 4]) # pan (sl 4 $ rand),
+    s "sub:5" # shape 0.5
+  ]
+
+-- bass-02.tidal
+d2 $ so (|- speed "0.001") $ so (|- speed "0.002") $ loa 32 "8bass" # n 8 # shape 0.5 # gain 1.1 # room 0.2 # sz 0.1
+
+-- synth-02.tidal
+d3 $ so (rev) $ loa 16 "8synth" # n 64 # shape 0.2 # delay 0.2 # delayfb 0.2 # delaytime 0.3
+
+-- transition-clutchin.tidal
+do
+  clutchIn 1 64 $ silence
+  clutchIn 2 64 $ fa 4 $ loa 64 "8bass" # n 6 # shape 0.8 # cut 1
+  clutchIn 3 64 $ silence
+  clutchIn 4 64 $ silence
+  clutchIn 5 64 $ silence
+  clutchIn 6 64 $ silence
+  clutchIn 7 64 $ silence
+
+
+-- drums-03.tidal
+d1 $ scramble 4 $ loa 16 "8club" # n 1
+
+-- bass-03.tidal
+d2 $ fa 8 $ loa 64 "8bass" # n 6 # shape 0.9 # cut 1 |+ speed (sl 4 $ range 0.001 0.005 $ sine)
+
+-- synth-03.tidal
+d3 $ whenmod 9 7 (hurry 2) $ loa 16 "8synth" # n 65 # shape 0.3 # pan (sl 4 $ rand)
+
+d4
+  $ mod16 64 (const $ stack [rev $ loa 16 "8fx" # n 20, loa 16 "8club" # n 7])
+  $ every 128 (superimpose $ const $ s "txt" # n 14)
+  $ so' 0.1 (shuffle 2) $ stack [
+  s "kick",
+  (1 <~) $ s "snare:2/2",
+  s "sub/4",
+  struct (sl 4 $ "t(3,8)") $ s "clap" # n (irand 3),
+  jux rev $ struct (sl 4 $ "t(<11 13 15>, 16, 0)") $ s "top"
+           ]
+
+-- acid-01.tidal
+d5 $ sl "<2 4>" $ n "[4 <2 6>] [2 4] [<2 4 5>] [<4 5> 2]" # s "acid" # cut "-1"
+
+
+-- transition-clutchin.tidal
+do
+  clutchIn 1 64 $ loa 32 "8club" # n 6
+  clutchIn 2 64 $ silence
+  clutchIn 3 64 $ silence
+  clutchIn 4 64 $ silence
+
+-- acid-01.tidal
+
+d1 $ loa 32 "8club" # n 6
+
+-- drums-06.tidal
+d1
+  $ mod32 128 (const $ rev $ loa 32 "txt:10" # n 29)
+  $ every 128 (superimpose $ const $ s "[crash:14, txt:10]" # cut "-1")
+  $ stack [
+            loa 16 "8drums" # n 8 # shape 0.8,
+            s "kick:5"
+          ]
+
+-- bass-05.tidal
+d2 $ loa 32 "8bass" # n "<11 12>/16" # shape 0.8
+
+-- synth-05.tidal
+d3 $ shuffle 2 $ loa 16 "8synth" # n 87
+
+d4 $ so (fa 2)-- drums-08.tidal
+ $ (sl 4 $ n "[<0 1 2 3>] [<0 1 2> 1] [2 1] [1 2?]") # s "acid" # gain 0.9 # cut "-1"
+
+
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+-- Thanks everybody for the party! <3 <3 <3 <3
+
+-- transition-clutchin.tidal
+do
+  clutchIn 1 64 $ silence
+  clutchIn 2 64 $ silence
+  clutchIn 3 64 $ silence
+  clutchIn 4 64 $ silence
+  clutchIn 5 64 $ silence
+  clutchIn 6 64 $ silence
+  clutchIn 7 64 $ silence

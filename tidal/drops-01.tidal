@@ -1,0 +1,3 @@
+-- drops-01.tidal
+$ every 64 (superimpose $ const $ s "crash" # n 0)
+$ mod16 64 (const $ rev $ loa 16 "8fx" # n 5)

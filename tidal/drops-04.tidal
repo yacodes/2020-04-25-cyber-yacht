@@ -1,0 +1,3 @@
+-- drops-04.tidal
+$ mod16 64 (const $ loa 16 "8atmo" # n 6 # shape 0.5)
+$ every 64 (superimpose $ const $ s "txt" # n 0)

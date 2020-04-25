@@ -1,0 +1,2 @@
+-- drums-08.tidal
+$ de' 0.25 $ loa 8 "8break" |< n (choose[0..20]) # shape 0.5

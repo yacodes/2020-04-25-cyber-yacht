@@ -1,0 +1,3 @@
+-- drops-03.tidal
+$ mod16 64 (const $ stack [rev $ loa 16 "8fx" # n 20, loa 16 "8club" # n 7])
+$ every 128 (superimpose $ const $ s "txt" # n 14)

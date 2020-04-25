@@ -1,0 +1,2 @@
+-- bass-04.tidal
+$ fa "<1 2>" $ loa 32 "8bass" # n 8 # gain 1.2

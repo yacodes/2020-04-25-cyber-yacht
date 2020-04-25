@@ -1,0 +1,9 @@
+-- transition-fadein.tidal
+do
+  xfadeIn 1 64 $ silence
+  xfadeIn 2 64 $ silence
+  xfadeIn 3 64 $ silence
+  xfadeIn 4 64 $ silence
+  xfadeIn 5 64 $ silence
+  xfadeIn 6 64 $ silence
+  xfadeIn 7 64 $ silence

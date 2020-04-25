@@ -1,0 +1,3 @@
+-- drops-07.tidal
+$ mod32 128 (const $ rev $ loa 32 "txt:10" # n 29)
+$ every 128 (superimpose $ const $ s "[crash:14, txt:10]" # cut "-1")

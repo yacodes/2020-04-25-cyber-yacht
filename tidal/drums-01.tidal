@@ -1,0 +1,7 @@
+-- drums-01.tidal
+$ stack [
+  s "808:10" # cut "-1",
+  jux rev $ de' 0.25 $ struct "t*4" $ s "top" # n 0 # gain 0.9,
+  (1 <~) $ s "snare/2" # n 5 # shape 0.2 # gain 0.9,
+  so (fa 2) $ s "kick:4"
+]
